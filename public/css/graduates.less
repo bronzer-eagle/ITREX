@@ -1,0 +1,135 @@
+@active: #ebffee;
+body {
+  font-family: sans-serif;
+}
+
+.wrapper.graduations {
+  margin-top: 30px;
+  width: 800px;
+  height: 550px;
+  header {
+    width: 100%;
+    height: 30px;
+    position: relative;
+    .h-head {
+      width: 60px;
+      height: 100%;
+      position: relative;
+      border: 1px solid black;
+      border-bottom: 1px solid transparent;
+      box-sizing: border-box;
+      line-height: 30px;
+      display: inline-block;
+      margin-left: 5px;
+      font-weight: bold;
+      vertical-align: middle;
+      text-align: center;
+      cursor: pointer;
+      background: #c2c8d1;
+      &.active {
+        top: 1px;
+        background: @active;
+      }
+    }
+    .average {
+      width: 200px;
+      height: 50px;
+      text-align: center;
+      border: 1px solid black;
+      padding: 2px;
+      box-sizing: border-box;
+      font-size: 18px;
+      position: absolute;
+      top: -20px;
+      right: 0;
+      border-bottom: none;
+    }
+    .addHead {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      vertical-align: middle;
+      border: 1px solid black;
+      line-height: 15px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+  section {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border: 1px solid black;
+    .s-body {
+      background: @active;
+      padding: 20px;
+      height: 100%;
+      overflow-y: auto;
+      display: none;
+      .grade {
+        font-size: 20px;
+        input {
+          background: @active;
+          font-size: 20px;
+          width: 50px;
+          text-align: center;
+          border: none;
+          border-bottom: 1px solid #afb5b5;
+          outline: none;
+        }
+      }
+      &.active {
+        display: block;
+      }
+      table {
+        text-align: center;
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 90%;
+        margin: 10px auto;
+        tr {
+          cursor: pointer;
+          &:hover {
+            background: #c9c9c9;
+          }
+        }
+        td, th {
+          border: 1px solid black;
+          padding: 6px;
+        }
+        th {
+          background: #87d194;
+          color: white;
+          text-shadow: 1px 1px 1px darken(#87d194, 20%);
+        }
+      }
+      form {
+        text-align: center;
+        input {
+          font-size: 16px;
+          padding: 5px 10px;
+          border: 1px solid black;
+          background: none;
+          outline: none;
+          border-radius: 5px;
+        }
+        input[type=submit] {
+          .transitions(color);
+          .transitions(background);
+          &:active {
+            background: #74ba81;
+            color: #33663d;
+          }
+        }
+      }
+    }
+  }
+}
+
+.origin {
+  display: none;
+}
+
+.transitions(@what) {
+  transition: @what 1s ease;
+}

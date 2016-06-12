@@ -1,0 +1,129 @@
+body {
+  font-family: sans-serif;
+}
+.wrapper.graduations {
+  margin-top: 30px;
+  width: 800px;
+  height: 550px;
+}
+.wrapper.graduations header {
+  width: 100%;
+  height: 30px;
+  position: relative;
+}
+.wrapper.graduations header .h-head {
+  width: 60px;
+  height: 100%;
+  position: relative;
+  border: 1px solid black;
+  border-bottom: 1px solid transparent;
+  box-sizing: border-box;
+  line-height: 30px;
+  display: inline-block;
+  margin-left: 5px;
+  font-weight: bold;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  background: #c2c8d1;
+}
+.wrapper.graduations header .h-head.active {
+  top: 1px;
+  background: #ebffee;
+}
+.wrapper.graduations header .average {
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 2px;
+  box-sizing: border-box;
+  font-size: 18px;
+  position: absolute;
+  top: -20px;
+  right: 0;
+  border-bottom: none;
+}
+.wrapper.graduations header .addHead {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+  border: 1px solid black;
+  line-height: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+.wrapper.graduations section {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+.wrapper.graduations section .s-body {
+  background: #ebffee;
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+  display: none;
+}
+.wrapper.graduations section .s-body .grade {
+  font-size: 20px;
+}
+.wrapper.graduations section .s-body .grade input {
+  background: #ebffee;
+  font-size: 20px;
+  width: 50px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #afb5b5;
+  outline: none;
+}
+.wrapper.graduations section .s-body.active {
+  display: block;
+}
+.wrapper.graduations section .s-body table {
+  text-align: center;
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 90%;
+  margin: 10px auto;
+}
+.wrapper.graduations section .s-body table tr {
+  cursor: pointer;
+}
+.wrapper.graduations section .s-body table tr:hover {
+  background: #c9c9c9;
+}
+.wrapper.graduations section .s-body table td,
+.wrapper.graduations section .s-body table th {
+  border: 1px solid black;
+  padding: 6px;
+}
+.wrapper.graduations section .s-body table th {
+  background: #87d194;
+  color: white;
+  text-shadow: 1px 1px 1px #43af56;
+}
+.wrapper.graduations section .s-body form {
+  text-align: center;
+}
+.wrapper.graduations section .s-body form input {
+  font-size: 16px;
+  padding: 5px 10px;
+  border: 1px solid black;
+  background: none;
+  outline: none;
+  border-radius: 5px;
+}
+.wrapper.graduations section .s-body form input[type=submit] {
+  transition: color 1s ease;
+  transition: background 1s ease;
+}
+.wrapper.graduations section .s-body form input[type=submit]:active {
+  background: #74ba81;
+  color: #33663d;
+}
+.origin {
+  display: none;
+}

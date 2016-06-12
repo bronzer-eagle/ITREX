@@ -1,0 +1,36 @@
+[
+  {
+    "grad": "8a",
+    "children": [
+      {
+        "name": "John Snow",
+        "GPA": "4.8"
+      },
+      {
+        "name": "Ned Stark",
+        "GPA": "5"
+      },
+      {
+        "name": "Tyrion Lannister",
+        "GPA": "4"
+      }
+    ]
+  },
+  {
+    "grad": "8b",
+    "children": [
+      {
+        "name": "Daenerys Targaryen",
+        "GPA": "4.5"
+      },
+      {
+        "name": "Arya Stark",
+        "GPA": "5"
+      },
+      {
+        "name": "Joffrey Baratheon",
+        "GPA": "3"
+      }
+    ]
+  }
+]
