@@ -1,11 +1,28 @@
-var testTask = angular.module('testTask', []);
+var testTask = angular.module('testTask', ['ui.router']);
+
+testTask.config(function($stateProvider, $urlRouterProvider) {
+    //
+    // For any unmatched url, redirect to /state1
+    $urlRouterProvider.otherwise("/state1");
+    //
+    // Now set up the states
+    $stateProvider
+        .state('state1', {
+            url: "/state1",
+            templateUrl: "/public/templates/graduates.html"
+        })
+        .state('state2', {
+            url: "/state2",
+            templateUrl: "/public/templates/domino.html"
+        })
+});
 
 testTask.controller('taskController', function ($scope, $http) {
     var flagPart = false;
     var counter = 1;
 
     $scope.variants = ['one', 'two', 'three', 'four', 'five', 'six'];
-    $scope.flag = 2;
+    $scope.flag = 0;
     $scope.student = {};
     $scope.dTop = {
         one: false,
@@ -26,7 +43,7 @@ testTask.controller('taskController', function ($scope, $http) {
     };
 
     $scope.values = {
-        sec: 0.1,
+        sec: 1,
         size: 1,
         angle: 0
     };
@@ -57,6 +74,22 @@ testTask.controller('taskController', function ($scope, $http) {
         $scope.activeData.children.splice(i, 1);
     };
 
+    $scope.deleteTab = function (i) {
+        if ($scope.data.length == 1){
+            $scope.data[0] = {grad: 'new', children: []};
+            $scope.activeData = $scope.data[0];
+        } else{
+            if ($scope.data.length-1 == i){
+                $scope.activeData = $scope.data[i-1];
+                $scope.activeTab = i-1;
+            }else{
+                $scope.activeData = $scope.data[i+1];
+                $scope.activeTab = i;
+            }
+            $scope.data.splice(i, 1);
+        }
+    };
+
     $scope.switchTab = function (i) {
         $scope.activeTab = i;
         $scope.activeData = $scope.data[i];
@@ -72,8 +105,6 @@ testTask.controller('taskController', function ($scope, $http) {
         if (valid) {
             $scope.activeData.children.push($scope.student);
             $scope.student = {};
-            $scope.addStudentForm.$setPristine();
-            $scope.addStudentForm.$setUntouched();
         }
     };
 
@@ -89,12 +120,13 @@ testTask.controller('taskController', function ($scope, $http) {
     $scope.getStyle = function () {
         return {
             'transform': 'rotate(' + $scope.values.angle + 'deg) scale(' + $scope.values.size + ')',
-            'transition': 'transform ' + $scope.values.sec + 's ease'
+            'transition': 'transform ' + Math.abs($scope.values.sec - 4.9) + 's ease'
         }
     };
 
 
     $scope.newDomino = function () {
+        $scope.values.angle = 0;
         flagPart = true;
         alert('Choose top part of domino!');
     };
@@ -128,5 +160,7 @@ testTask.controller('taskController', function ($scope, $http) {
 
 
 });
+
+
 
 
